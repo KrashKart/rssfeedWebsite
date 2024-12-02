@@ -1,0 +1,5 @@
+<%= form_with url: "headline/search", method: :get do |form| %>
+  <%= form.label :rsslink, "Enter RSS feed URL here:" %>
+  <%= form.search_field :rsslink %>
+  <%= form.submit "Search" %>
+<% end %>

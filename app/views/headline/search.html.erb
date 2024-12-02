@@ -1,0 +1,21 @@
+<%= form_with url: '', method: :get do |form| %>
+  <%= form.label :rsslink, "Enter RSS feed URL here:" %>
+  <%= form.search_field :rsslink %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<ul>
+  <% if @feed != nil %>
+    <h1><%= @feed.title %></h1>
+    <h4>RSS URL: <%= @rssLink %></h4>
+    <h4>Source: <%= @feed.link %></h4>
+    <h4>Description: <%= @feed.description %></h4>
+    <% @feed.headlines.each do |headline| %>
+      <li>
+        <%= headline %>
+      </li>
+    <% end %>
+  <% else %>
+    <h1>Invalid RSS feed link!</h1>
+  <% end %>
+</ul>
